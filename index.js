@@ -15,6 +15,16 @@ const {cloudinaryConnect} = require("./config/Cloudinary");
 const fileUpload = require("express-fileupload");
 
 
+
+app.use(
+    
+  cors({
+      origin: JSON.parse(process.env.CORS_ORIGIN),
+      credentials: true,
+      maxAge: 14400,
+    })
+)
+
 const PORT = process.env.PORT || 6000;
 
 database.connect()
@@ -24,14 +34,7 @@ database.connect()
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(
-    
-    cors({
-        origin: JSON.parse(process.env.CORS_ORIGIN),
-        credentials: true,
-        maxAge: 14400,
-      })
-)
+
 
 app.use(
 	fileUpload({
