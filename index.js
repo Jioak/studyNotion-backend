@@ -18,11 +18,7 @@ const fileUpload = require("express-fileupload");
 
 app.use(
     
-  cors({
-      origin: JSON.parse(process.env.CORS_ORIGIN),
-      credentials: true,
-      maxAge: 14400,
-    })
+  cors()
 )
 
 const PORT = process.env.PORT || 6000;
